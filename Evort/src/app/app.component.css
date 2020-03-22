@@ -1,0 +1,42 @@
+.hstyle{
+    background-color: #212322;
+    margin-bottom: auto;
+}
+
+.hstyle img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: auto;
+}
+
+.hstyle .menu button{
+    background-color: #212322; /* Green background */
+    border: 1px solid white; /* Green border */
+    color: white; /* White text */
+    width: 25%;
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: right; /* Float the buttons side by side */
+    font-family: 'Nunito', sans-serif;
+
+
+}
+
+.hstyle .menu button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.hstyle .menu:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.hstyle .menu button:hover {
+    background-color: white;
+    color: #212322;
+}
