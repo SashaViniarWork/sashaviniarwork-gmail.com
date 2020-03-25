@@ -12,13 +12,8 @@ export class ApiLoginService {
 
   constructor(private http: HttpClient) { }
 
-  getAllMovies(): Observable<any> {
-    return this.http.get(this.baseurl + '/movies/',
-      {headers: this.httpHeaders});
-  }
-
-  checkPassword(): Observable<any> {
-    return this.http.get(this.baseurl + '/password/',
+  loginUser(): Observable<any> {
+    return this.http.post(this.baseurl + '/auth/login/',
       {headers: this.httpHeaders});
   }
 }

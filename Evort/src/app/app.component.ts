@@ -13,30 +13,19 @@ import {ApiLoginService} from './services/api-login.service';
 })
 export class AppComponent {
   title = 'Evort';
-  movies = [{title: 'test'}, {title: 'test-2'}];
-  password = [{value: 123}];
+  users = [{value: 'Username 1'}, {value: 'Username 2'}];
 
   constructor(private api: ApiLoginService) {
-    this.getMovies();
-    this.checkPassword();
+    this.loginUser();
   }
 
-  getMovies = () => {
-    this.api.getAllMovies().subscribe(
+  loginUser = () => {
+    this.api.loginUser().subscribe(
       data => {
-        this.movies = data;
+        this.users = data;
       },
       error => {
-        console.log(error);
-      }
-    );
-  }
-  checkPassword = () => {
-    this.api.checkPassword().subscribe(
-      data => {
-        this.password = data;
-      },
-      error => {
+        console.log('ERROR!');
         console.log(error);
       }
     );
