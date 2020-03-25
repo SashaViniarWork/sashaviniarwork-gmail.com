@@ -6,10 +6,10 @@
 
       <div class="row">
         <div class="col-25">
-          <label for="name">Name: </label>
+          <label for="username">Name: </label>
         </div>
         <div class="col-75">
-          <input [(ngModel)]="registerUserData.name" type="text" id="name" name="name" placeholder="Your name.." required="required">
+          <input [(ngModel)]="registerUserData.username" type="text" id="username" name="username" placeholder="Your name.." required="required">
         </div>
       </div>
 
@@ -23,19 +23,19 @@
 
     <div class="row">
       <div class="col-25">
-        <label for="password">Password: </label>
+        <label for="password1">Password: </label>
       </div>
       <div class="col-75">
-        <input [(ngModel)]="registerUserData.password" type="password" id="password" name="password" placeholder="Your password.." required="required">
+        <input [(ngModel)]="registerUserData.password1" type="password" id="password1" name="password1" placeholder="Your password.." required="required">
       </div>
     </div>
 
     <div class="row">
       <div class="col-25">
-        <label for="c_password">Password: </label>
+        <label for="password2">Password: </label>
       </div>
       <div class="col-75">
-        <input [(ngModel)]="registerUserData.c_password" type="password" id="c_password" name="c_password" placeholder="Confirm password.." required="required">
+        <input [(ngModel)]="registerUserData.password2" type="password" id="password2" name="password2" placeholder="Confirm password.." required="required">
       </div>
     </div>
 

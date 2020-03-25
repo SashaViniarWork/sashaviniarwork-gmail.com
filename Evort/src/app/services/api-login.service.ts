@@ -12,8 +12,8 @@ export class ApiLoginService {
 
   constructor(private http: HttpClient) { }
 
-  loginUser(): Observable<any> {
-    return this.http.post(this.baseurl + '/auth/login/',
+  registerUser(data): Observable<any> {
+    return this.http.post(this.baseurl + '/auth/registration/', data,
       {headers: this.httpHeaders});
   }
 }

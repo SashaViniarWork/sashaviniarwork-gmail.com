@@ -8,6 +8,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { LoginComponent } from './components/login/login.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
+import {ApiLoginService} from './services/api-login.service';
 
 
 
@@ -24,7 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [ ApiLoginService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
