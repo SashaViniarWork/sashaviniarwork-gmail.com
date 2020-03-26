@@ -21,6 +21,10 @@ export class RegistrationComponent implements OnInit {
       res => {
         console.log(res);
         console.log('SUCCESS!!!');
+
+        localStorage.setItem('key', res.key);
+        alert('You successfully registered!');
+        // this.router.navigate(['']);
       },
       err => {
         console.log(err);
