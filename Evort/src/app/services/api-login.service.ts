@@ -17,4 +17,9 @@ export class ApiLoginService {
     return this.http.post(this.baseurl + '/auth/registration/', data,
       {headers: this.httpHeaders});
   }
+
+  loginUser(data): Observable<any> {
+    return this.http.post(this.baseurl + '/auth/login/', data,
+      {headers: this.httpHeaders});
+  }
 }
