@@ -20,6 +20,7 @@ export class RegistrationComponent implements OnInit {
     this.api.registerUser(this.registerUserData).subscribe(
       res => {
         console.log(res);
+        console.log('SUCCESS!!!');
       },
       err => {
         console.log(err);
