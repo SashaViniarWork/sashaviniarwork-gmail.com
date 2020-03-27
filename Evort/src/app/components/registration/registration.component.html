@@ -3,43 +3,44 @@
 
     <div class="row">
       <h2>Register new user</h2>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="username">Name: </label>
+        </div>
+        <div class="col-75">
+          <input [(ngModel)]="registerUserData.username" type="text" id="username" name="username" placeholder="Your name.." required="required">
+        </div>
+      </div>
+
       <div class="col-25">
         <label for="email">Email: </label>
       </div>
       <div class="col-75">
-        <input type="text" id="email" name="email" placeholder="Your email..">
+        <input [(ngModel)]="registerUserData.email" type="text" id="email" name="email" placeholder="Your email.." required="required">
       </div>
     </div>
 
     <div class="row">
       <div class="col-25">
-        <label for="phone">Phone number: </label>
+        <label for="password1">Password: </label>
       </div>
       <div class="col-75">
-        <input type="text" id="phone" name="phone" placeholder="Your phone..">
+        <input [(ngModel)]="registerUserData.password1" type="password" id="password1" name="password1" placeholder="Your password.." required="required">
       </div>
     </div>
 
     <div class="row">
       <div class="col-25">
-        <label for="password">Password: </label>
+        <label for="password2">Password: </label>
       </div>
       <div class="col-75">
-        <input type="text" id="password" name="password" placeholder="Your password..">
+        <input [(ngModel)]="registerUserData.password2" type="password" id="password2" name="password2" placeholder="Confirm password.." required="required">
       </div>
     </div>
 
     <div class="row">
-      <div class="col-25">
-        <label for="c_password">Password: </label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="c_password" name="c_password" placeholder="Confirm password..">
-      </div>
-    </div>
-
-    <div class="row">
-      <input type="submit" value="Submit">
+      <input (click)="registerUser()" type="submit" value="Submit">
     </div>
 
     <div class="register">
