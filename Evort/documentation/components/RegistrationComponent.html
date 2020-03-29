@@ -121,6 +121,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#registerUserData">registerUserData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -132,6 +146,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#registerUser">registerUser</a>
                             </li>
                         </ul>
                     </td>
@@ -151,15 +168,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(api: <a href="../injectables/ApiLoginService.html">ApiLoginService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/components/registration/registration.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/registration/registration.component.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>api</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiLoginService.html" target="_self" >ApiLoginService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -195,8 +242,47 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/components/registration/registration.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/app/components/registration/registration.component.ts:14</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerUser"></a>
+                    <span class="name">
+                        <b>
+                            registerUser
+                        </b>
+                        <a href="#registerUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">src/app/components/registration/registration.component.ts:17</a></div>
                 </td>
             </tr>
 
@@ -213,12 +299,51 @@
         </tbody>
     </table>
 </section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="registerUserData"></a>
+                        <span class="name">
+                            <b>
+                            registerUserData</b>
+                            <a href="#registerUserData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{username: &#x27;&#x27;, email: &#x27;&#x27;, password1: &#x27;&#x27;, password2: &#x27;&#x27;}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/registration/registration.component.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ApiLoginService } from &#x27;../../services/api-login.service&#x27;;
 
 @Component({
   selector: &#x27;app-registration&#x27;,
@@ -227,17 +352,84 @@
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  registerUserData &#x3D; {username: &#x27;&#x27;, email: &#x27;&#x27;, password1: &#x27;&#x27;, password2: &#x27;&#x27;};
+  constructor(private api: ApiLoginService) { }
 
   ngOnInit(): void {
   }
 
+  registerUser() {
+    console.log(this.registerUserData);
+
+    this.api.registerUser(this.registerUserData).subscribe(
+      res &#x3D;&gt; {
+        console.log(res);
+        console.log(&#x27;SUCCESS!!!&#x27;);
+
+        localStorage.setItem(&#x27;key&#x27;, res.key);
+        alert(&#x27;You successfully registered!&#x27;);
+        // this.router.navigate([&#x27;&#x27;]);
+      },
+      err &#x3D;&gt; {
+        console.log(err);
+      }
+    );
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;registration works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;top_padding&quot;&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;h2&gt;Register new user&lt;/h2&gt;
+
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-25&quot;&gt;
+          &lt;label for&#x3D;&quot;username&quot;&gt;Name: &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-75&quot;&gt;
+          &lt;input [(ngModel)]&#x3D;&quot;registerUserData.username&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;username&quot; name&#x3D;&quot;username&quot; placeholder&#x3D;&quot;Your name..&quot; required&#x3D;&quot;required&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;col-25&quot;&gt;
+        &lt;label for&#x3D;&quot;email&quot;&gt;Email: &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-75&quot;&gt;
+        &lt;input [(ngModel)]&#x3D;&quot;registerUserData.email&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;email&quot; name&#x3D;&quot;email&quot; placeholder&#x3D;&quot;Your email..&quot; required&#x3D;&quot;required&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-25&quot;&gt;
+        &lt;label for&#x3D;&quot;password1&quot;&gt;Password: &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-75&quot;&gt;
+        &lt;input [(ngModel)]&#x3D;&quot;registerUserData.password1&quot; type&#x3D;&quot;password&quot; id&#x3D;&quot;password1&quot; name&#x3D;&quot;password1&quot; placeholder&#x3D;&quot;Your password..&quot; required&#x3D;&quot;required&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-25&quot;&gt;
+        &lt;label for&#x3D;&quot;password2&quot;&gt;Password: &lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-75&quot;&gt;
+        &lt;input [(ngModel)]&#x3D;&quot;registerUserData.password2&quot; type&#x3D;&quot;password&quot; id&#x3D;&quot;password2&quot; name&#x3D;&quot;password2&quot; placeholder&#x3D;&quot;Confirm password..&quot; required&#x3D;&quot;required&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;input (click)&#x3D;&quot;registerUser()&quot; type&#x3D;&quot;submit&quot; value&#x3D;&quot;Submit&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;register&quot;&gt;
+      &lt;a class&#x3D;&quot;register&quot; routerLink&#x3D;&quot;/login&quot;&gt;Already have account?&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -245,7 +437,99 @@ export class RegistrationComponent implements OnInit {
                 <p class="comment">
                     <code>./registration.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">* {
+  box-sizing: border-box;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type&#x3D;text], input[type&#x3D;password]{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+h2 {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type&#x3D;submit] {
+  width: 100%;
+  background-color: #212322;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-top: 6px;
+}
+
+input[type&#x3D;submit]:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.register {
+  padding-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: blue;
+}
+
+.register:hover {
+  color: #0056b3;
+  text-decoration: underline
+}
+
+.container {
+  width: 550px;
+  margin: 50px auto auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.top_padding {
+  padding-top: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: &quot;&quot;;
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75 {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .container {
+    width: 95%;
+  }
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -273,7 +557,7 @@ export class RegistrationComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>registration works!</p></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="top_padding">  <div class="container">    <div class="row">      <h2>Register new user</h2>      <div class="row">        <div class="col-25">          <label for="username">Name: </label>        </div>        <div class="col-75">          <input [(ngModel)]="registerUserData.username" type="text" id="username" name="username" placeholder="Your name.." required="required">        </div>      </div>      <div class="col-25">        <label for="email">Email: </label>      </div>      <div class="col-75">        <input [(ngModel)]="registerUserData.email" type="text" id="email" name="email" placeholder="Your email.." required="required">      </div>    </div>    <div class="row">      <div class="col-25">        <label for="password1">Password: </label>      </div>      <div class="col-75">        <input [(ngModel)]="registerUserData.password1" type="password" id="password1" name="password1" placeholder="Your password.." required="required">      </div>    </div>    <div class="row">      <div class="col-25">        <label for="password2">Password: </label>      </div>      <div class="col-75">        <input [(ngModel)]="registerUserData.password2" type="password" id="password2" name="password2" placeholder="Confirm password.." required="required">      </div>    </div>    <div class="row">      <input (click)="registerUser()" type="submit" value="Submit">    </div>    <div class="register">      <a class="register" routerLink="/login">Already have account?</a>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'RegistrationComponent', 'selector': 'app-registration'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RegistrationComponent'};
