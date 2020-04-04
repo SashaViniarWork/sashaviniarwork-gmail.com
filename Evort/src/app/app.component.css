@@ -11,6 +11,37 @@
     height: auto;
 }
 
+.hstyle .menu img{
+  float: left;
+  height: 40px;
+  width: auto;
+}
+
+.hstyle .menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #212322;
+}
+
+.hstyle .menu li {
+  float: right;
+}
+
+.hstyle .menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.hstyle .menu li a:hover:not(.active) {
+  background-color: #111;
+}
+
+
 .hstyle .menu button{
     background-color: #212322; /* Green background */
     border: 1px solid white; /* Green border */
@@ -60,4 +91,14 @@ footer .credits {
       -ms-flex-align: center;
           align-items: center;
   color: white;
+}
+
+
+@media screen and (max-width: 600px){
+  .hstyle .menu img{
+    display: none;
+  }
+  .hstyle .menu li{
+    width: 100%;
+  }
 }

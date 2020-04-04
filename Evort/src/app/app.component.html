@@ -1,13 +1,18 @@
 <header class="hstyle">
-  <a routerLink="">
-    <img src="../assets/media/Header.png" alt="Evort logo">
-  </a>
-
-  <nav class="menu">
+    <nav class="menu">
+    <!--
     <button type="submit" routerLink="/registration"> Реєстрація</button>
     <button type="submit" routerLink="/login">Вхід</button>
     <button type="submit">Налаштування</button>
     <button type="submit">Карта</button>
+    -->
+    <img src="../assets/media/Header.png" alt="Evort logo">
+    <ul>
+        <li><a routerLink="/registration">Реєстрація</a></li>
+        <li><a routerLink="/login">Вхід</a></li>
+        <li><a>Налаштування</a></li>
+        <li><a routerLink="/">Карта</a></li>
+    </ul>
   </nav>
 </header>
 <router-outlet></router-outlet>
@@ -17,4 +22,3 @@
    <p>©AI-CS 2020</p>
  </div>
 </footer>
-
