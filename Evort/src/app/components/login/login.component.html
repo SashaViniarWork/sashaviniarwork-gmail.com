@@ -10,6 +10,7 @@
         </div>
         <div class="col-75">
           <input formControlName="username" placeholder="Your username.." type="text" id="name" required>
+          <p class="error" *ngIf="formErrors.username">{{formErrors.username}}</p>
         </div>
       </div>
 
@@ -19,12 +20,13 @@
         </div>
         <div class="col-75">
           <input formControlName="password" placeholder="Your password.." type="password" id="password" required>
+          <p class="error" *ngIf="formErrors.password">{{formErrors.password}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="error" *ngIf="error">
-          <h4 >{{error | json}}</h4>
+          <h4 >{{error}} <a href="/registration">Click here to register</a></h4>
         </div>
 
         <button type="submit" [disabled]="loginForm.invalid">Submit</button>

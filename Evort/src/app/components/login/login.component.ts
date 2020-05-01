@@ -26,11 +26,11 @@ export class LoginComponent implements OnInit {
   validationMessages = {
     username: {
       required: 'User Name is required.',
-      minlength: 'User Name must be at least 3 characters long.',
+      minlength: 'User Name is too short.',
     },
     password: {
       required: 'Password is required.',
-      minlength: 'Password must be at least 3 characters long.',
+      minlength: 'Password is too short.',
     },
   };
 
