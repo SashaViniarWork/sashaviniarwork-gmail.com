@@ -1,31 +1,38 @@
 <div class="top_padding">
   <div class="container">
 
-    <div class="row">
+    <p>{{ loginForm.value | json }} {{ loginForm.status | json }}</p>
+    <form novalidate [formGroup]="loginForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <h2>Enter your account</h2>
-      <div class="col-25">
-        <label for="name">Username: </label>
+      <div class="row">
+        <div class="col-25">
+          <label for="name">Username: </label>
+        </div>
+        <div class="col-75">
+          <input formControlName="username" placeholder="Your username.." type="text" id="name" required>
+        </div>
       </div>
-      <div class="col-75">
-        <input [(ngModel)]="loginUserData.username" type="text" id="name" name="name" placeholder="Your name.." required="required">
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-25">
-        <label for="password">Password: </label>
+      <div class="row">
+        <div class="col-25">
+          <label for="password">Password: </label>
+        </div>
+        <div class="col-75">
+          <input formControlName="password" placeholder="Your password.." type="password" id="password" required>
+        </div>
       </div>
-      <div class="col-75">
-        <input [(ngModel)]="loginUserData.password" type="password" id="password" name="password" placeholder="Your password.." required="required">
+
+      <div class="row">
+        <div class="error" *ngIf="error">
+          <h4 >{{error | json}}</h4>
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid">Submit</button>
       </div>
-    </div>
 
-    <div class="row">
-      <input (click)="loginUser()" type="submit" value="Submit">
-    </div>
-
-    <div class="register">
-      <a class="register" routerLink="/registration">Don`t have account?</a>
-    </div>
+      <div class="register">
+        <a class="register" routerLink="/registration">Don`t have account?</a>
+      </div>
+    </form>
   </div>
 </div>

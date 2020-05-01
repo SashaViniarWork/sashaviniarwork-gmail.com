@@ -21,7 +21,7 @@ h2 {
   margin-right: auto;
 }
 
-input[type=submit] {
+button[type=submit] {
   width: 100%;
   background-color: #212322;
   color: white;
@@ -33,8 +33,13 @@ input[type=submit] {
   margin-top: 6px;
 }
 
-input[type=submit]:hover {
+button[type=submit]:hover {
   background-color: #ffffff;
+  color: #000000;
+}
+
+button[type=submit]:disabled {
+  background-color: grey;
   color: #000000;
 }
 
@@ -89,4 +94,12 @@ input[type=submit]:hover {
   .container {
     width: 95%;
   }
+}
+
+.error {
+  color: #D8000C;
+  background-color: #FFD2D2;
+  text-align: center;
+  padding:1px;
+  margin: 6px 0;
 }
