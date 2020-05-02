@@ -11,6 +11,7 @@
         <div class="col-75">
           <input formControlName="username" placeholder="Your username.." type="text" id="username" required>
           <p class="error" *ngIf="formErrors.username">{{formErrors.username}}</p>
+          <p class="warning" *ngIf="userError">{{userError}}</p>
         </div>
       </div>
 
@@ -21,6 +22,7 @@
         <div class="col-75">
           <input formControlName="email" placeholder="Your email.." type="email" id="email" required>
           <p class="error" *ngIf="formErrors.email">{{formErrors.email}}</p>
+          <p class="warning" *ngIf="emailError">{{emailError}}</p>
         </div>
       </div>
 
@@ -31,6 +33,7 @@
         <div class="col-75">
           <input formControlName="password1" placeholder="Your password.." type="password" id="password1" required>
           <p class="error" *ngIf="formErrors.password1">{{formErrors.password1}}</p>
+          <p class="warning" *ngIf="passError">{{passError}}</p>
         </div>
       </div>
 
@@ -46,10 +49,6 @@
       </div>
 
       <div class="row">
-        <div class="error" *ngIf="error">
-          <h4>{{error | json}}</h4>
-        </div>
-
         <button type="submit" [disabled]="registerForm.invalid">Submit</button>
       </div>
 

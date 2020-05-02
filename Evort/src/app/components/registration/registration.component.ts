@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiLoginService } from '../../services/api-login.service';
 import { Register } from '../shared/register';
 import { Router } from '@angular/router';
+import {toArray} from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration',
@@ -13,7 +14,10 @@ export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
   register: Register;
-  error: object;
+
+  userError: object;
+  emailError: object;
+  passError: object;
   @ViewChild('fform') registerFormDirective;
 
   formErrors = {
@@ -88,6 +92,7 @@ export class RegistrationComponent implements OnInit {
 
   onValueChanged(data?: any)  {
     if (!this.registerForm) { return; }
+    this.resetError();
     const form = this.registerForm;
     for (const field in this.formErrors) {
       if (this.formErrors.hasOwnProperty(field)) {
@@ -114,7 +119,6 @@ export class RegistrationComponent implements OnInit {
       res => {
         // If success
         console.log(res);
-        console.log('LOGIN SUCCESS!!!');
 
         this.registerForm.reset({
           username: '',
@@ -129,9 +133,39 @@ export class RegistrationComponent implements OnInit {
       err => {
         // If error
         console.log(err.error);
-        console.log('OBANANA');
-        this.error = err.error;
+
+        this.handleErrors(err.error);
       }
     );
+  }
+
+  handleErrors(error) {
+    if (error.username) {
+      this.userError = error.username[0];
+    }
+    if (error.email) {
+      this.emailError = error.email[0];
+    }
+    if (error.password1) {
+      this.passError = error.password1[0];
+    }
+  }
+
+  resetError(field?) {
+    if (field === 'username') {
+      this.userError = null;
+    }
+    if (field === 'email') {
+      this.emailError = null;
+    }
+    if (field === 'password1') {
+      this.passError = null;
+    }
+
+    if (!field) {
+      this.userError = null;
+      this.emailError = null;
+      this.passError = null;
+    }
   }
 }

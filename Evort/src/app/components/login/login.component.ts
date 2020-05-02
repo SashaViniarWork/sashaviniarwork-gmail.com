@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   onValueChanged(data?: any) {
+    this.error = null;
     if (!this.loginForm) { return; }
     const form = this.loginForm;
     for (const field in this.formErrors) {
