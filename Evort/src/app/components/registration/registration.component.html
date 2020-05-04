@@ -1,50 +1,60 @@
 <div class="top_padding">
   <div class="container">
 
-    <div class="row">
+    <p>{{ registerForm.value | json }} {{ registerForm.status | json }}</p>
+    <form novalidate [formGroup]="registerForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <h2>Register new user</h2>
-
       <div class="row">
         <div class="col-25">
           <label for="username">Name: </label>
         </div>
         <div class="col-75">
-          <input [(ngModel)]="registerUserData.username" type="text" id="username" name="username" placeholder="Your name.." required="required">
+          <input formControlName="username" placeholder="Your username.." type="text" id="username" required>
+          <p class="error" *ngIf="formErrors.username">{{formErrors.username}}</p>
+          <p class="warning" *ngIf="userError">{{userError}}</p>
         </div>
       </div>
 
-      <div class="col-25">
-        <label for="email">Email: </label>
+      <div class="row">
+        <div class="col-25">
+          <label for="email">Email: </label>
+        </div>
+        <div class="col-75">
+          <input formControlName="email" placeholder="Your email.." type="email" id="email" required>
+          <p class="error" *ngIf="formErrors.email">{{formErrors.email}}</p>
+          <p class="warning" *ngIf="emailError">{{emailError}}</p>
+        </div>
       </div>
-      <div class="col-75">
-        <input [(ngModel)]="registerUserData.email" type="text" id="email" name="email" placeholder="Your email.." required="required">
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-25">
-        <label for="password1">Password: </label>
+      <div class="row">
+        <div class="col-25">
+          <label for="password1">Password: </label>
+        </div>
+        <div class="col-75">
+          <input formControlName="password1" placeholder="Your password.." type="password" id="password1" required>
+          <p class="error" *ngIf="formErrors.password1">{{formErrors.password1}}</p>
+          <p class="warning" *ngIf="passError">{{passError}}</p>
+        </div>
       </div>
-      <div class="col-75">
-        <input [(ngModel)]="registerUserData.password1" type="password" id="password1" name="password1" placeholder="Your password.." required="required">
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-25">
-        <label for="password2">Password: </label>
+      <div class="row">
+        <div class="col-25">
+          <label for="password2">Password: </label>
+        </div>
+        <div class="col-75">
+          <input formControlName="password2" placeholder="Confirm your password.." type="password" id="password2"
+                 required>
+          <p class="error" *ngIf="formErrors.password2">{{formErrors.password2}}</p>
+        </div>
       </div>
-      <div class="col-75">
-        <input [(ngModel)]="registerUserData.password2" type="password" id="password2" name="password2" placeholder="Confirm password.." required="required">
+
+      <div class="row">
+        <button type="submit" [disabled]="registerForm.invalid">Submit</button>
       </div>
-    </div>
 
-    <div class="row">
-      <input (click)="registerUser()" type="submit" value="Submit">
-    </div>
-
-    <div class="register">
-      <a class="register" routerLink="/login">Already have account?</a>
-    </div>
+      <div class="register">
+        <a class="register" routerLink="/login">Already have account?</a>
+      </div>
+    </form>
   </div>
 </div>

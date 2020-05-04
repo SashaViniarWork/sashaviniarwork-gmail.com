@@ -1,0 +1,82 @@
+.hstyle{
+  background-color: #212322;
+  margin-bottom: auto;
+}
+
+.hstyle img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: auto;
+}
+
+.hstyle .menu img{
+  float: left;
+  height: 40px;
+  width: auto;
+}
+
+.hstyle .menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #212322;
+}
+
+.hstyle .menu li {
+  float: right;
+}
+
+.hstyle .menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.hstyle .menu li a:hover:not(.active) {
+  background-color: #111;
+}
+
+
+.hstyle .menu button{
+  background-color: #212322; /* Green background */
+  border: 1px solid white; /* Green border */
+  color: white; /* White text */
+  width: 25%;
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: right; /* Float the buttons side by side */
+  font-family: 'Nunito', sans-serif;
+
+
+}
+
+.hstyle .menu button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.hstyle .menu:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.hstyle .menu button:hover {
+  background-color: white;
+  color: #212322;
+}
+
+@media screen and (max-width: 600px){
+  .hstyle .menu img{
+    display: none;
+  }
+  .hstyle .menu li{
+    width: 100%;
+  }
+}
