@@ -11,8 +11,13 @@ p.pbold{
   font-weight: bold;
 }
 
+.infocon{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 img{
-  width: 90%;
+  width: 100%;
   height: auto;
   display: block;
   margin-left: auto;
@@ -28,8 +33,7 @@ img{
 
 .infocon table{
   display: block;
-  padding-left: 70px;
-  margin-left: 70px;
+  margin-left: 250px;
 }
 
 input[type=text], input[type=password]{
@@ -119,6 +123,12 @@ button[type=submit]:disabled {
 
   img{
     display: none;
+  }
+
+  .infocon table{
+    margin-left: auto;
+    margin-right: auto;
+
   }
 
   .container {
