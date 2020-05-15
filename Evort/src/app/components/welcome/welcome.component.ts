@@ -50,6 +50,16 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  image = {
+    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    // This marker is 20 pixels wide by 32 pixels high.
+    size: new google.maps.Size(20, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -76,6 +86,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
       // Creating a new marker object
       const marker = new google.maps.Marker({
         ...markerInfo,
+        icon: this.image,
       });
 
       // creating a new info window with markers info
@@ -90,6 +101,8 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
         this.openedInfo = infoWindow;
         infoWindow.open(marker.getMap(), marker);
         this.map.setCenter(new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()));
+
+        this.openEventdetail();
       });
 
       marker.setMap(this.map);
