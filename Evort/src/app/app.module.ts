@@ -13,6 +13,7 @@ import { ApiLoginService } from './services/api-login.service';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GroundComponent } from './components/ground/ground.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 
@@ -24,7 +25,8 @@ import { GroundComponent } from './components/ground/ground.component';
     WelcomeComponent,
     HeaderComponent,
     FooterComponent,
-    GroundComponent
+    GroundComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

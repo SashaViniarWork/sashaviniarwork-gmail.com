@@ -1,47 +1,49 @@
-<google-map
-  height="500px"
-  width="100%"
-  [zoom]="zoom"
-  [center]="center"
-  [options]="options"
-  (mapClick)="click($event)"
-  xmlns="http://www.w3.org/1999/html">
-  <map-marker
-    #markerElem
-    *ngFor="let marker of markers"
-    [position]="marker.position"
-    [label]="marker.label"
-    [title]="marker.title"
-    [options]="marker.options"
-    (mapClick)="openInfo(markerElem)"
-  >
-  </map-marker>
+<div class="container-map">
+  <google-map id = map
+    height="500px"
+    width="100%"
+    [zoom]="zoom"
+    [center]="center"
+    [options]="options"
+    (mapClick)="click($event)"
+    xmlns="http://www.w3.org/1999/html">
+    <map-marker
+      #markerElem
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [label]="marker.label"
+      [title]="marker.title"
+      [options]="marker.options"
+      (mapClick)="openInfo(markerElem)"
+    >
+    </map-marker>
 
-  <map-info-window>
-    <div class="container">
-      <h2 id = ground-name>{{ name }}</h2>
-        <div class="infocon">
-          <img src="../assets/media/sportIcon.png" alt="Evort logo">
-          <table>
-            <tr>
-              <td><p class="pbold">Адреса:</p></td>
-              <td><p>{{ address }}</p></td>
-            </tr>
-            <tr>
-              <td><p class="pbold">Тип:</p></td>
-              <td><p>{{ type }}</p></td>
-            </tr>
-            <tr>
-              <td><p class="pbold">Оплата:</p></td>
-              <td><p>{{ paid }}</p></td>
-            </tr>
-          </table>
-        </div>
-    </div>
-  </map-info-window>
-</google-map>
+    <map-info-window>
+      <div class="container">
+        <h2 id = ground-name>{{ name }}</h2>
+          <div class="infocon">
+            <img src="../assets/media/sportIcon.png" alt="Evort logo">
+            <table>
+              <tr>
+                <td><p class="pbold">Адреса:</p></td>
+                <td><p>{{ address }}</p></td>
+              </tr>
+              <tr>
+                <td><p class="pbold">Тип:</p></td>
+                <td><p>{{ type }}</p></td>
+              </tr>
+              <tr>
+                <td><p class="pbold">Оплата:</p></td>
+                <td><p>{{ paid }}</p></td>
+              </tr>
+            </table>
+          </div>
+      </div>
+    </map-info-window>
+  </google-map>
 
 
-<button (click)="zoomIn()">Zoom in</button>
-<button (click)="zoomOut()">Zoom out</button>
-<button (click)="addMarker()">Add marker</button>
+  <button (click)="zoomIn()">Zoom in</button>
+  <button (click)="zoomOut()">Zoom out</button>
+  <button (click)="addMarker()">Add marker</button>
+</div>
