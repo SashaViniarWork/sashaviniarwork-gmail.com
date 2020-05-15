@@ -13,6 +13,7 @@ import { ApiLoginService } from './services/api-login.service';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GroundComponent } from './components/ground/ground.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,8 +37,7 @@ import { GrounddetailComponent } from './components/grounddetail/grounddetail.co
     HeaderComponent,
     FooterComponent,
     GroundComponent,
-    EventdetailComponent,
-    GrounddetailComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
