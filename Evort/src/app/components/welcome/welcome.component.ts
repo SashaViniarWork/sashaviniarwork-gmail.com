@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { EventdetailComponent } from '../../eventdetail/eventdetail.component';
+import { GrounddetailComponent } from '../grounddetail/grounddetail.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -110,7 +110,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   }
 
   openEventdetail() {
-    this.dialog.open(EventdetailComponent, {width: '500px', height: '450px'});
+    this.dialog.open(GrounddetailComponent, {width: '500px', height: '450px'});
   }
 
   /*
