@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { EventdetailComponent } from '../../eventdetail/eventdetail.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-welcome',
@@ -49,6 +50,8 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  constructor(public dialog: MatDialog) { }
+
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition(position => {
       console.log(position);
@@ -91,6 +94,10 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
 
       marker.setMap(this.map);
     });
+  }
+
+  openEventdetail() {
+    this.dialog.open(EventdetailComponent, {width: '500px', height: '450px'});
   }
 
   /*

@@ -14,7 +14,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GroundComponent } from './components/ground/ground.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
+import 'hammerjs';
+import { EventdetailComponent } from './eventdetail/eventdetail.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +34,8 @@ import { GroundComponent } from './components/ground/ground.component';
     WelcomeComponent,
     HeaderComponent,
     FooterComponent,
-    GroundComponent
+    GroundComponent,
+    EventdetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +44,17 @@ import { GroundComponent } from './components/ground/ground.component';
     AppRoutingModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    EventdetailComponent
   ],
   providers: [ ApiLoginService ],
   bootstrap: [ AppComponent ]
