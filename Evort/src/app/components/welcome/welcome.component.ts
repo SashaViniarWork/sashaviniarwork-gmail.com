@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { EventdetailComponent } from '../../eventdetail/eventdetail.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-welcome',
@@ -7,31 +8,67 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit, AfterViewInit {
+  /*
   private clearMarkers = true;
   private markerList = [];
-  private centre = [49, 11];
-  private zoom = 10;
   private gridSize = 64;
   private filters = [];
+  private centre = [49, 11];
+  private zoom = 10;
   private clusterArea = false;
-
   private maxBounds = {
     left: -179,
     top: 89,
     right: 179,
     bottom: -89
   };
-
+   */
 
   @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   map: google.maps.Map;
+  coordinates;
+  openedInfo;
 
   mapOptions: google.maps.MapOptions = {
-    center: new google.maps.LatLng(this.centre[0], this.centre[1]),
-    zoom: this.zoom,
+    center: this.coordinates,
+    zoom: 10,
     scrollwheel: true,
-    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    mapTypeId: google.maps.MapTypeId.HYBRID,
+    zoomControl: true
   };
+
+  markers  = [
+    {
+      position: new google.maps.LatLng(49.9214488, 24.1735642),
+      map: this.map,
+      title: 'Marker 1'
+    },
+    {
+      position: new google.maps.LatLng(49.7214488, 24.0735642),
+      map: this.map,
+      title: 'Marker 2',
+    }
+  ];
+
+  image = {
+    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    // This marker is 20 pixels wide by 32 pixels high.
+    size: new google.maps.Size(20, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
+
+  constructor(public dialog: MatDialog) { }
+
+  ngOnInit(): void {
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position);
+
+      this.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+    });
+  }
 
   ngAfterViewInit() {
     this.mapInitializer();
@@ -39,13 +76,45 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
 
   mapInitializer() {
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
-    this.startClustering();
+    // this.startClustering();
+
+    this.loadAllMarkers();
   }
 
-  ngOnInit(): void {
+  loadAllMarkers(): void {
+    this.markers.forEach(markerInfo => {
+      // Creating a new marker object
+      const marker = new google.maps.Marker({
+        ...markerInfo,
+        icon: this.image,
+      });
+
+      // creating a new info window with markers info
+      const infoWindow = new google.maps.InfoWindow({
+        content: marker.getTitle(),
+      });
+
+      marker.addListener('click', () => {
+        if (this.openedInfo != null) {
+          this.openedInfo.close();
+        }
+        this.openedInfo = infoWindow;
+        infoWindow.open(marker.getMap(), marker);
+        this.map.setCenter(new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()));
+
+        this.openEventdetail();
+      });
+
+      marker.setMap(this.map);
+    });
   }
 
-//  Google API
+  openEventdetail() {
+    this.dialog.open(EventdetailComponent, {width: '500px', height: '450px'});
+  }
+
+  /*
+  //  Google API
 
   startClustering(): void {
     google.maps.event.addListener(this.map, 'idle', () => {
@@ -97,7 +166,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   }
 
 
-//  Anycluster funcs
+  //  Anycluster funcs
 
   cluster(): void {
 
@@ -243,4 +312,5 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
 
     this.clearMarkers = true;
   }
+   */
 }
