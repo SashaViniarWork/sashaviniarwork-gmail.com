@@ -1,0 +1,46 @@
+
+<div class="user-profile-container">
+    <h1 id="user-name">{{ firstName }} {{ lastName }}</h1>
+    <div class="usercon">
+      <div class="imgcon">
+        <img src="../assets/media/user1.png">
+      </div>
+      <div class="tablecon">
+        <table>
+          <tr>
+            <td><p class="pbold">Username:</p></td>
+            <td><p>{{ username }}</p></td>
+          </tr>
+          <tr>
+            <td><p class="pbold">Дата народження:</p></td>
+            <td><p>{{ dateOfBirth }}</p></td>
+          </tr>
+          <tr>
+            <td><p class="pbold">Електронна адреса:</p></td>
+            <td><p>{{ email }}</p></td>
+          </tr>
+          <tr>
+            <td><p class="pbold">Телефон:</p></td>
+            <td><p>{{ phone }}</p></td>
+          </tr>
+          <tr>
+            <td><p class="pbold">Країна:</p></td>
+            <td><p>{{ country }}</p></td>
+          </tr>
+          <tr>
+            <td><p class="pbold">Адреса:</p></td>
+            <td><p>{{ address }}</p></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<!--
+<h2>List of users</h2>
+<ul>
+  <li *ngFor="let user of users">
+    <h2>{{user.username}}</h2>
+  </li>
+</ul>
+-->
