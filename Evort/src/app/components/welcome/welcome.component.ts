@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { GrounddetailComponent } from '../grounddetail/grounddetail.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { GROUNDS } from '../shared/grounds';
+import {Ground} from '../shared/ground';
 
 @Component({
   selector: 'app-welcome',
@@ -29,6 +31,8 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   coordinates;
   openedInfo;
 
+  grounds = GROUNDS;
+
   mapOptions: google.maps.MapOptions = {
     center: this.coordinates,
     zoom: 10,
@@ -36,28 +40,19 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
     mapTypeId: google.maps.MapTypeId.HYBRID,
     zoomControl: true
   };
-
   markers  = [
     {
       position: new google.maps.LatLng(49.9214488, 24.1735642),
-      map: this.map,
       title: 'Marker 1'
     },
     {
       position: new google.maps.LatLng(49.7214488, 24.0735642),
-      map: this.map,
       title: 'Marker 2',
     }
   ];
-
   image = {
     url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-    // This marker is 20 pixels wide by 32 pixels high.
     size: new google.maps.Size(20, 32),
-    // The origin for this image is (0, 0).
-    origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32)
   };
 
   constructor(public dialog: MatDialog) { }
@@ -82,14 +77,19 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   }
 
   loadAllMarkers(): void {
-    this.markers.forEach(markerInfo => {
-      // Creating a new marker object
+    // tslint:disable-next-line:forin
+    for (const g of GROUNDS) {
+      const coords = g.coordinates.split(';');
+      const lat = Number(coords[0]);
+      const lng = Number(coords[1]);
+
       const marker = new google.maps.Marker({
-        ...markerInfo,
+        map: this.map,
         icon: this.image,
+        position: new google.maps.LatLng(lat, lng),
+        title: g.name,
       });
 
-      // creating a new info window with markers info
       const infoWindow = new google.maps.InfoWindow({
         content: marker.getTitle(),
       });
@@ -98,19 +98,25 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
         if (this.openedInfo != null) {
           this.openedInfo.close();
         }
+        this.map.setCenter(new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()));
+        this.openEventdetail(g.id);
+        console.log(g.id);
+      });
+
+      marker.addListener('mouseover', () => {
+        if (this.openedInfo != null) {
+          this.openedInfo.close();
+        }
         this.openedInfo = infoWindow;
         infoWindow.open(marker.getMap(), marker);
-        this.map.setCenter(new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()));
-
-        this.openEventdetail();
       });
 
       marker.setMap(this.map);
-    });
+    }
   }
 
-  openEventdetail() {
-    this.dialog.open(GrounddetailComponent, {width: '500px', height: '450px'});
+  openEventdetail(data) {
+    this.dialog.open(GrounddetailComponent, {width: '500px', height: '450px', data: {id: data}});
   }
 
   /*

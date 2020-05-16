@@ -10,7 +10,7 @@ describe('GrounddetailComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ GrounddetailComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
