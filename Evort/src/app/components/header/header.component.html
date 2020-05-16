@@ -3,11 +3,11 @@
     <a href="/"><img src="../assets/media/Header.png" alt="Evort logo"></a>
     <ul>
       <li><a routerLink="/registration">Реєстрація</a></li>
-      <li><a routerLink="/login">Вхід</a></li>
-      <li><a>Налаштування</a></li>
+      <li><a *ngIf="isLoggedIn$" routerLink="/login">Вхід</a></li>
+      <li><a *ngIf="isLoggedIn$">Вийти</a></li>
+      <li><a *ngIf="isLoggedIn$" routerLink="/user-profile">Профіль</a></li>
       <li><a routerLink="/">Карта</a></li>
       <li><a routerLink="/ground">Ground</a></li>
-      <li><a routerLink="/user-profile">Профіль</a></li>
 
     </ul>
   </nav>
