@@ -8,15 +8,22 @@ import { UserProfileService } from '../../services/user-profile.service';
   providers: [UserProfileService]
 })
 export class UserProfileComponent implements OnInit {
-  id : bigint;
-  username = 'username';
-  firstName = "Ім'я";
-  lastName = 'Прізвище';
+  username = '_pabeda_';
+  firstName = 'Вікторія';
+  lastName = 'Заремба';
   email = 'example@gmail.com';
-  phone = '+380000000000';
+  phone = '+380985796738';
   country = 'Україна';
   address = 'Сихів 30';
   dateOfBirth = '01.01.2000';
+
+  ngOnInit(): void {
+  }
+
+ /*
+ Колись буде стягувати інфу про юзера, там ще сервіс є
+  */
+
   /*
   users= [{username:'user1'}];
   error: any;
@@ -46,8 +53,7 @@ export class UserProfileComponent implements OnInit {
   address = 'Сихів 30';
   dateOfBirth = '01.01.2000';
  */
-  ngOnInit(): void {
-  }
+
 /*
   getUserData() {
     this.userProfileService.getUserData()

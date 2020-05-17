@@ -17,6 +17,11 @@ export interface users {
 }
 */
 
+/*
+Просто робить якусь хрінь. ну тобто абсолютно нічого, терміново потребує ін'єкції (injection)
+ */
+
+
 @Injectable({
   providedIn: 'root'
 })

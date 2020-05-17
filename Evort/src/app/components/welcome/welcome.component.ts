@@ -99,7 +99,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
           this.openedInfo.close();
         }
         this.map.setCenter(new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()));
-        this.openEventdetail(g.id);
+        this.openGrounddetail(g.id);
         console.log(g.id);
       });
 
@@ -115,7 +115,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  openEventdetail(data) {
+  openGrounddetail(data) {
     this.dialog.open(GrounddetailComponent, {width: '500px', height: '450px', data: {id: data}});
   }
 

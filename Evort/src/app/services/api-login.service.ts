@@ -24,13 +24,25 @@ export class ApiLoginService {
   }
 
   loginUser(data): Observable<any> {
-    this.loggedIn.next(true);{
+    this.loggedIn.next(true); {
     return this.http.post(this.baseurl + '/auth/login/', data,
       {headers: this.httpHeaders});
+    }
   }
 
 
-}
+  /*
+  Колись може таки юзер зможе вийти з сайту, але поки застряг тут навічно
+   */
+/*
+  logoutUser(): Observable<any> {
+    this.loggedIn.next(false); {
+      return this.http.post(this.baseurl + '/auth/logout/', {},
+      {headers: this.httpHeaders});
+    }
+  }
+
+ */
 
 }
 

@@ -12,8 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ApiLoginService } from './services/api-login.service';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { GroundComponent } from './components/ground/ground.component';
-
+import { GrounddetailComponent} from './components/grounddetail/grounddetail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -25,8 +24,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
-import { GrounddetailComponent } from './components/grounddetail/grounddetail.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -36,9 +35,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     WelcomeComponent,
     HeaderComponent,
     FooterComponent,
-    GroundComponent,
-    EventdetailComponent,
     GrounddetailComponent,
+    EventdetailComponent,
     UserProfileComponent,
   ],
   imports: [
@@ -59,7 +57,6 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
   ],
   entryComponents: [
     EventdetailComponent,
-    GrounddetailComponent
   ],
   providers: [ ApiLoginService ],
   bootstrap: [ AppComponent ]
