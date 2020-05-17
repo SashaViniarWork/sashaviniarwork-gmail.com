@@ -1,7 +1,7 @@
 <div class="top_padding">
   <div class="container">
 
-    <p>{{ loginForm.value | json }} {{ loginForm.status | json }}</p>
+
     <form novalidate [formGroup]="loginForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <h2>Enter your account</h2>
       <div class="row">

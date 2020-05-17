@@ -116,7 +116,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   }
 
   openGrounddetail(data) {
-    this.dialog.open(GrounddetailComponent, {width: '500px', height: '450px', data: {id: data}});
+    this.dialog.open(GrounddetailComponent, {width: '45%', height: '80%', panelClass: 'myapp-no-padding-dialoge', data: {id: data}});
   }
 
   /*
