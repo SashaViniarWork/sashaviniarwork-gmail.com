@@ -8,3 +8,7 @@ body{
 .flex-spacer {
   flex: 1 1 auto;
 }
+
+.myapp-no-padding-dialog .mat-dialog-container {
+  padding: 0;
+}

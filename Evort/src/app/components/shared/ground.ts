@@ -1,3 +1,5 @@
+import { Gevent } from './gevent';
+
 export class Ground {
   id: number;
   name: string;
@@ -6,4 +8,5 @@ export class Ground {
   paid: boolean;
   groundType: string;
   maxPlayers: number;
+  events: Gevent[];
 }

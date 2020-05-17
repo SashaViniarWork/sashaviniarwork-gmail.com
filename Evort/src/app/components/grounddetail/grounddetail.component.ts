@@ -1,21 +1,16 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
-import {Inject} from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EventdetailComponent } from '../eventdetail/eventdetail.component';
-import {Gevent} from '../shared/gevent';
-import {GEVENTS} from '../shared/gevents';
-
-/*
-class Event {
-  id: string;
-  name: string;
-}
-*/
+import { Gevent } from '../shared/gevent';
 
 export interface DialogData {
-  id: string;
+  id: number;
+  name: string;
+  address: string;
+  type: string;
+  paid: boolean;
+  maxPlayers: number;
+  events: Gevent[];
 }
 
 @Component({
@@ -25,23 +20,23 @@ export interface DialogData {
 })
 
 export class GrounddetailComponent implements OnInit {
-  gevents = GEVENTS;
-  name = 'Str Park Football Cort';
-  address = 'Стрийська 105';
-  type = 'Football Field';
-  paid = 'false';
-  content = 'some content';
+
+  constructor(public dialog: MatDialog,
+              @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {}
+
   onClick(event: Gevent) {
-    this.openEventdetail();
+    this.openEventdetail(event);
   }
 
-  constructor(public dialog: MatDialog) { }
-
-  openEventdetail() {
-    this.dialog.open(EventdetailComponent, {width: '500px', height: '450px'});
+  openEventdetail(event: Gevent) {
+    this.dialog.open(EventdetailComponent, {width: '500px', height: '320px', panelClass: 'myapp-no-padding-dialog',
+    data: {id: event.id,
+        name: event.name,
+        date: event.date,
+        creator: event.creator,
+        details: event.description}});
   }
-
 }
 

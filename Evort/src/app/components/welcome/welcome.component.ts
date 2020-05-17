@@ -99,7 +99,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
           this.openedInfo.close();
         }
         this.map.setCenter(new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()));
-        this.openGrounddetail(g.id);
+        this.openGrounddetail(g);
         console.log(g.id);
       });
 
@@ -115,8 +115,15 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  openGrounddetail(data) {
-    this.dialog.open(GrounddetailComponent, {width: '500px', height: '450px', data: {id: data}});
+  openGrounddetail(d: Ground) {
+    this.dialog.open(GrounddetailComponent, {width: '500px', height: '450px', panelClass: 'myapp-no-padding-dialog',
+      data: {id: d.id,
+            name: d.name,
+            address: d.address,
+            type: d.groundType,
+            paid: d.paid,
+            maxPlayers: d.maxPlayers,
+            events: d.events}});
   }
 
   /*

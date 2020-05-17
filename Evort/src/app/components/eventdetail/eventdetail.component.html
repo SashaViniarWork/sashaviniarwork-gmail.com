@@ -1,22 +1,23 @@
 <div class="container" style="width:100%; padding-bottom: 10px;">
 
-  <h2 id = ground-name style="text-align: center;"> Name </h2>
+  <h2 id = ground-name style="text-align: center;"> {{data.name}} </h2>
   <div class="infocon">
     <table>
-      <tr style="margin: 0px;">
-        <td><p class="pbold" style="margin: 0px;">Дата:</p></td>
-        <td><p style="margin: 0px;">24.10.2000</p></td>
+      <tr style="margin: 0;">
+        <td><p class="pbold" style="margin: 0;">Дата:</p></td>
+        <td><p style="margin: 0;">{{data.date}}</p></td>
       </tr>
-      <tr style="margin: 0px;">
-        <td><p class="pbold" style="margin: 0px;">Створив:</p></td>
-        <td><p style="margin: 0px;">Jhon Dou</p></td>
+      <tr style="margin: 0;">
+        <td><p class="pbold" style="margin: 0;">Створив:</p></td>
+        <td><p style="margin: 0;">{{data.creator}}</p></td>
       </tr>
       <tr>
-        <td><p class="pbold" style="margin: 0px;">Деталі:</p></td>
-        <td><p style="margin: 0px;">Have fun</p></td>
+        <td><p class="pbold" style="margin: 0;">Деталі:</p></td>
+        <td><p style="margin: 0;">{{data.details}}</p></td>
       </tr>
     </table>
   </div>
-  <button type="submit">join</button>
+  <button type="submit">Join</button>
+  <button type="submit" mat-dialog-close>Dmiss</button>
 
 </div>

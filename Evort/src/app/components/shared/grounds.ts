@@ -1,4 +1,4 @@
-import {Ground} from './ground';
+import { Ground } from './ground';
 
 export const GROUNDS: Ground[] = [
   {
@@ -8,7 +8,16 @@ export const GROUNDS: Ground[] = [
     coordinates: '49.9214488;24.0735642',
     paid: false,
     groundType: 'Stadium',
-    maxPlayers: 10
+    maxPlayers: 10,
+    events: [
+      {
+        id: 0,
+        name: 'Ігри сильних',
+        date: '24.05.2020',
+        creator: 'Jhon Dou',
+        description: 'Буде весело',
+        groundId: 0
+      }]
   },
   {
     id: 1,
@@ -17,15 +26,57 @@ export const GROUNDS: Ground[] = [
     coordinates: '49.8214488;24.1735642',
     paid: false,
     groundType: 'Ramp',
-    maxPlayers: 20
+    maxPlayers: 20,
+    events: [
+      {
+        id: 0,
+        name: 'Ігри сильних',
+        date: '24.05.2020',
+        creator: 'Jhon Dou',
+        description: 'Буде весело',
+        groundId: 0
+      },
+      {
+        id: 1,
+        name: 'Ігри сильних',
+        date: '24.05.2020',
+        creator: 'Jhon Dou',
+        description: 'Буде весело',
+        groundId: 0
+      }]
   },
   {
     id: 2,
     name: 'None',
     address: 'Lviv',
     coordinates: '49.8214488;24.1635642',
-    paid: false,
+    paid: true,
     groundType: 'None',
-    maxPlayers: 30
+    maxPlayers: 30,
+    events: [
+      {
+        id: 0,
+        name: 'Ігри сильних',
+        date: '24.05.2020',
+        creator: 'Jhon Dou',
+        description: 'Буде весело',
+        groundId: 0
+      },
+      {
+        id: 1,
+        name: 'Ігри сильних',
+        date: '24.05.2020',
+        creator: 'Jhon Dou',
+        description: 'Буде весело',
+        groundId: 0
+      },
+      {
+        id: 2,
+        name: 'Ігри сильних',
+        date: '24.05.2020',
+        creator: 'Jhon Dou',
+        description: 'Буде весело',
+        groundId: 0
+      }]
   },
 ];

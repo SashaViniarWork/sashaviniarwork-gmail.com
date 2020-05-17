@@ -1,20 +1,21 @@
 <div class="container" style="width:100%; padding-bottom: 10px;">
 
-  <h2 id = ground-name style="text-align: center;"> {{ name }}</h2>
+  <h2 id = ground-name style="text-align: center;"> {{ data.name }}</h2>
   <div class="infocon">
     <img src="../assets/media/sportIcon.png" alt="Evort logo">
     <table>
-      <tr style="margin: 0px;">
-        <td><p class="pbold" style="margin: 0px;">Адреса:</p></td>
-        <td><p style="margin: 0px;">{{ address }}</p></td>
+      <tr style="margin: 0;">
+        <td><p class="pbold" style="margin: 0;">Адреса:</p></td>
+        <td><p style="margin: 0;">{{ data.address }}</p></td>
       </tr>
-      <tr style="margin: 0px;">
-        <td><p class="pbold" style="margin: 0px;">Тип:</p></td>
-        <td><p style="margin: 0px;">{{ type }}</p></td>
+      <tr style="margin: 0;">
+        <td><p class="pbold" style="margin: 0;">Тип:</p></td>
+        <td><p style="margin: 0;">{{ data.type }}</p></td>
       </tr>
       <tr>
-        <td><p class="pbold" style="margin: 0px;">Оплата:</p></td>
-        <td><p style="margin: 0px;">{{ paid }}</p></td>
+        <td><p class="pbold" style="margin: 0;">Оплата:</p></td>
+        <td><p style="margin: 0;" *ngIf="data.paid">Платне</p>
+          <p style="margin: 0;" *ngIf="!data.paid">Безплатне</p></td>
       </tr>
     </table>
   </div>
@@ -26,10 +27,10 @@
       <h3>Events</h3>
     </mat-grid-tile>
 
-    <mat-grid-tile *ngFor="let event of gevents" style="align-items: flex-start; !important;" (click)="openEventdetail()">
+    <mat-grid-tile *ngFor="let event of data.events" style="align-items: flex-start; !important;" (click)="openEventdetail(event)">
       <div class="events_list_item" style="width: 100%;">
-        <span style="float: left">{{event.name}}</span>
-        <span style="float: right">8/12</span>
+        <span style="float: left">{{ event.name }}</span>
+        <span style="float: right">8/{{ data.maxPlayers }}</span>
 <!--       <span style="float: right; margin-right: 10px">Creator: Yabko</span> -->
         <span style="float: right; margin-right: 20px;">{{ event.date }}</span>
       </div>
