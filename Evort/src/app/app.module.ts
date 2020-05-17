@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GrounddetailComponent } from './components/grounddetail/grounddetail.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { GrounddetailComponent } from './components/grounddetail/grounddetail.co
     GroundComponent,
     EventdetailComponent,
     GrounddetailComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
